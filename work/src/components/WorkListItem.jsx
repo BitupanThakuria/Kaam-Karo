@@ -1,15 +1,18 @@
 import React from 'react'
-import {useState} from 'react'
+import Card from './shared/Card'
+import {FaTimes} from 'react-icons/fa'
 
-function WorkListItem() {
 
-    const[rating, setRating] = useState(8)
-    const[work, setWork] = useState('ohh boy need to make chai for mum')
+function WorkListItem({item,handledelete}) {
+
+    
   return (
-    <div className='card'>
-      <div className='num-display'>{rating}</div>
-      <div className='text-dispay'>{work}</div>  
-    </div>
+    <Card reverse = {true}>
+      <div className='num-display'>{item.priority}</div>
+      <button className='close' onClick={()=>handledelete(item.id)}><FaTimes color='purple'/></button>
+      <div className='text-dispay'>{item.text}</div> 
+
+      </Card>
   )
 }
 
